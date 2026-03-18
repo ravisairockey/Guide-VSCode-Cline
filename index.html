@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>VS Code + Cline + OpenRouter Setup Guide | Interactive Installation Tutorial</title>
+    <meta name="description" content="Complete interactive guide to install VS Code, Cline AI extension, and OpenRouter API. Step-by-step instructions with liquid glass UI. Works on Windows, macOS, and Linux.">
+    <meta name="keywords" content="VS Code, Cline, OpenRouter, AI coding assistant, Visual Studio Code setup, Cline extension, OpenRouter API, AI programming, code editor setup, developer tools, installation guide, interactive tutorial">
+    <meta name="author" content="Guide-VSCode-Cline Contributors">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourusername.github.io/Guide-VSCode-Cline/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/Guide-VSCode-Cline/">
+    <meta property="og:title" content="VS Code + Cline + OpenRouter Setup Guide | Interactive Installation">
+    <meta property="og:description" content="Interactive liquid glass UI guide for setting up VS Code, Cline AI extension, and OpenRouter API. Complete step-by-step tutorial for developers.">
+    <meta property="og:image" content="https://yourusername.github.io/Guide-VSCode-Cline/preview.png">
+    <meta property="og:site_name" content="Guide-VSCode-Cline">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yourusername.github.io/Guide-VSCode-Cline/">
+    <meta name="twitter:title" content="VS Code + Cline + OpenRouter Setup Guide">
+    <meta name="twitter:description" content="Interactive guide to install VS Code, Cline AI extension, and OpenRouter API with beautiful liquid glass design.">
+    <meta name="twitter:image" content="https://yourusername.github.io/Guide-VSCode-Cline/preview.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Setup VS Code, Cline, and OpenRouter",
+      "description": "Complete guide to install Visual Studio Code, configure Cline AI extension, and set up OpenRouter API for AI-powered coding.",
+      "image": "https://yourusername.github.io/Guide-VSCode-Cline/preview.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Guide-VSCode-Cline Contributors"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Install Visual Studio Code",
+          "text": "Download and install VS Code on Windows, macOS, or Linux."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Install Cline Extension",
+          "text": "Install the Cline AI extension from the VS Code marketplace."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Setup OpenRouter API",
+          "text": "Configure OpenRouter API key in Cline settings for AI model access."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#667eea">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --accent-color: #667eea;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated liquid background blobs */
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+            75% {
+                transform: translate(30px, 50px) scale(1.05);
+            }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            margin: 2rem 0 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .progress-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .progress-step.active .step-circle {
+            background: var(--primary-gradient);
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+            transform: scale(1.1);
+        }
+
+        .progress-step.completed .step-circle {
+            background: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 80px;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Content cards */
+        .content-area {
+            margin-bottom: 2rem;
+        }
+
+        .step-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .step-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-right: 1.5rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .step-title {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #fff, #e0e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .step-content h3 {
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .step-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .step-content li::marker {
+            color: #667eea;
+        }
+
+        /* Platform selector */
+        .platform-selector {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .platform-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.2rem;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .platform-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .platform-btn.active {
+            background: var(--primary-gradient);
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .platform-content {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .platform-content.active {
+            display: block;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            color: #e0e0ff;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .copy-btn.copied {
+            background: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        /* Links and buttons */
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 1rem 0.5rem 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn.prev {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            border: 2px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn.prev:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .nav-btn.next {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn.next:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Success screen */
+        .success-animation {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            animation: successPop 0.8s ease-out;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+        }
+
+        @keyframes successPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .step-title {
+                font-size: 1.5rem;
+            }
+
+            .step-card {
+                padding: 1.5rem;
+            }
+
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .progress-step {
+                min-width: 80px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2, #f093fb);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated liquid background -->
+    <div class="liquid-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>✨ Setup Wizard</h1>
+            <p class="subtitle">Install VS Code, Cline Extension & OpenRouter API</p>
+        </header>
+
+        <!-- Progress indicator -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 25%"></div>
+            </div>
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">VS Code</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Cline</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">OpenRouter</span>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <span class="step-label">Complete</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content area -->
+        <div class="content-area">
+            <!-- Step 1: VS Code Installation -->
+            <div class="step-card active" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Install Visual Studio Code</h2>
+                </div>
+                <div class="step-content">
+                    <p>Visual Studio Code is a powerful, lightweight code editor with built-in support for JavaScript, TypeScript, and Node.js. Follow these steps to install it on your system:</p>
+
+                    <h3>📥 Download VS Code</h3>
+                    <p>Select your operating system below for specific instructions:</p>
+
+                    <div class="platform-selector">
+                        <button class="platform-btn active" data-platform="windows">🪟 Windows</button>
+                        <button class="platform-btn" data-platform="macos">🍎 macOS</button>
+                        <button class="platform-btn" data-platform="linux">🐧 Linux</button>
+                    </div>
+
+                    <div class="platform-content active" id="windows">
+                        <h4>Windows Installation</h4>
+                        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li>Click the download button below to get the Windows installer (User Installer recommended)</li>
+                            <li>Once downloaded, double-click the <code>VSCodeUserSetup-x64-*.exe</code> file</li>
+                            <li>Follow the installation wizard (accept defaults unless you have specific preferences)</li>
+                            <li>Launch VS Code from the Start Menu or desktop shortcut</li>
+                        </ol>
+                        <a href="https://code.visualstudio.com/Download" target="_blank" class="link-btn">
+                            ⬇️ Download VS Code for Windows
+                        </a>
+                    </div>
+
+                    <div class="platform-content" id="macos">
+                        <h4>macOS Installation</h4>
+                        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li>Click the download button below to get the macOS version</li>
+                            <li>Open the downloaded <code>.zip</code> file to extract it</li>
+                            <li>Drag the Visual Studio Code app to your <code>Applications</code> folder</li>
+                            <li>Open VS Code from Launchpad or Applications folder</li>
+                            <li>If you see a security warning, go to <code>System Preferences → Security & Privacy</code> and allow VS Code</li>
+                        </ol>
+                        <a href="https://code.visualstudio.com/Download" target="_blank" class="link-btn">
+                            ⬇️ Download VS Code for macOS
+                        </a>
+                    </div>
+
+                    <div class="platform-content" id="linux">
+                        <h4>Linux Installation</h4>
+                        <p>Choose your preferred method:</p>
+
+                        <h5>Option A: Snap (Recommended for Ubuntu/Debian)</h5>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            <pre>sudo snap install code --classic</pre>
+                        </div>
+
+                        <h5>Option B: .deb package (Ubuntu/Debian)</h5>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            <pre>sudo apt install ./code_*.deb</pre>
+                        </div>
+
+                        <h5>Option C: .rpm package (Fedora/RHEL/CentOS)</h5>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            <pre>sudo rpm -i code-*.rpm</pre>
+                        </div>
+
+                        <a href="https://code.visualstudio.com/Download" target="_blank" class="link-btn">
+                            ⬇️ Download VS Code for Linux
+                        </a>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>💡 Pro Tip:</strong> After installation, open VS Code and press <code>Ctrl+Shift+P</code> (Windows/Linux) or <code>Cmd+Shift+P</code> (macOS) to access the Command Palette. This is your gateway to all VS Code features!
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev" disabled>← Previous</button>
+                    <button class="nav-btn next" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Install Cline Extension -->
+            <div class="step-card" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Install Cline Extension</h2>
+                </div>
+                <div class="step-content">
+                    <p>Cline is an AI-powered coding assistant that integrates directly into VS Code. Here's how to install it:</p>
+
+                    <h3>🔧 Installation Steps</h3>
+                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Open VS Code (if not already open)</li>
+                        <li>Click the <strong>Extensions</strong> icon in the left sidebar (or press <code>Ctrl+Shift+X</code> / <code>Cmd+Shift+X</code>)</li>
+                        <li>In the search bar, type: <code>cline</code></li>
+                        <li>Look for the official <strong>"Cline"</strong> extension by <strong>cline-org</strong></li>
+                        <li>Click the <strong>Install</strong> button</li>
+                        <li>Wait for installation to complete (you'll see a gear icon instead of Install)</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <strong>🔍 Finding the Right Extension:</strong><br>
+                        Make sure you're installing the extension from <strong>cline-org</strong>. The extension icon features a blue/white C logo. If you see multiple results, verify the publisher name.
+                    </div>
+
+                    <h3>📸 Visual Guide</h3>
+                    <p>If you prefer visual instructions, you can watch this quick tutorial:</p>
+                    <a href="https://www.youtube.com/results?search_query=install+cline+extension+vs+code" target="_blank" class="link-btn">
+                        ▶️ Watch Installation Video
+                    </a>
+
+                    <h3>✅ Verify Installation</h3>
+                    <p>After installation:</p>
+                    <ul>
+                        <li>You should see a <strong>Cline</strong> icon in the Activity Bar (left sidebar)</li>
+                        <li>Click it to open the Cline chat interface</li>
+                        <li>The first time you open it, you'll be prompted to configure an AI provider</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Important:</strong> Cline requires an AI API key to function. In the next step, we'll set up OpenRouter, which provides access to multiple AI models through a single API.
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev" onclick="prevStep()">← Previous</button>
+                    <button class="nav-btn next" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Configure OpenRouter API -->
+            <div class="step-card" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Setup OpenRouter API</h2>
+                </div>
+                <div class="step-content">
+                    <p>OpenRouter provides unified access to multiple AI models (GPT-4, Claude, Llama, etc.) through a single API key. We'll use it with Cline for AI-powered coding assistance.</p>
+
+                    <h3>🔑 Get Your OpenRouter API Key</h3>
+                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Go to <a href="https://openrouter.ai" target="_blank">openrouter.ai</a> and sign up/log in</li>
+                        <li>Navigate to <strong>API Keys</strong> in your account dashboard</li>
+                        <li>Click <strong>Create New Key</strong></li>
+                        <li>Give it a name (e.g., "Cline VS Code")</li>
+                        <li>Copy your API key immediately (you won't be able to see it again!)</li>
+                    </ol>
+
+                    <a href="https://openrouter.ai/keys" target="_blank" class="link-btn">
+                        🔗 Go to OpenRouter Keys Page
+                    </a>
+
+                    <div class="info-box">
+                        <strong>💰 Pricing:</strong> OpenRouter offers competitive pricing with access to multiple models. You get free credits upon signup to test different models. Check their pricing page for current rates.
+                    </div>
+
+                    <h3>⚙️ Configure Cline with OpenRouter</h3>
+                    <p>Now, let's connect your OpenRouter API key to Cline:</p>
+
+                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>In VS Code, click the <strong>Cline</strong> icon in the Activity Bar</li>
+                        <li>You'll see a setup screen asking for an <strong>API Provider</strong></li>
+                        <li>Select <strong>OpenRouter</strong> from the dropdown</li>
+                        <li>In the <strong>API Key</strong> field, paste your OpenRouter key</li>
+                        <li>For <strong>Model</strong>, choose your preferred AI model (e.g., <code>openai/gpt-4o</code>, <code>anthropic/claude-3.5-sonnet</code>)</li>
+                        <li>Click <strong>Save</strong> or <strong>Connect</strong></li>
+                    </ol>
+
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre>Example API Configuration:
+Provider: OpenRouter
+API Key: sk-or-v1-xxxxxxxxxxxxxxxxxxxxxxxx
+Model: openai/gpt-4o</pre>
+                    </div>
+
+                    <h3>🎯 Recommended Models</h3>
+                    <p>Here are some popular models you can use with OpenRouter:</p>
+                    <ul>
+                        <li><code>openai/gpt-4o</code> - Latest GPT-4o, excellent all-around</li>
+                        <li><code>anthropic/claude-3.5-sonnet</code> - Great for code and reasoning</li>
+                        <li><code>meta-llama/llama-3.1-70b-instruct</code> - Powerful open-source option</li>
+                        <li><code>mistralai/mixtral-8x7b-instruct</code> - Fast and efficient</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>💡 Model Selection Tips:</strong><br>
+                        • <strong>GPT-4o</strong>: Best overall performance, good for complex tasks<br>
+                        • <strong>Claude 3.5 Sonnet</strong>: Excellent for code generation and analysis<br>
+                        • <strong>Llama 3.1</strong>: Free tier available, good for experimentation<br>
+                        Start with GPT-4o or Claude 3.5 Sonnet for best results.
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>🔒 Security Note:</strong> Never share your API key. Keep it secret and secure. If you suspect it's been compromised, revoke it immediately from OpenRouter and create a new one.
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev" onclick="prevStep()">← Previous</button>
+                    <button class="nav-btn next" onclick="nextStep()">Complete →</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Completion -->
+            <div class="step-card" id="step4">
+                <div class="success-animation">
+                    <div class="success-icon">🎉</div>
+                    <h2 class="step-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Setup Complete!</h2>
+                    <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                        You've successfully installed VS Code, Cline extension, and configured OpenRouter API.
+                    </p>
+
+                    <div class="info-box" style="max-width: 600px; margin: 0 auto 2rem;">
+                        <h3 style="margin-bottom: 1rem;">🚀 Getting Started with Cline</h3>
+                        <ul style="margin-left: 1.2rem;">
+                            <li>Open the Cline panel in VS Code (left sidebar)</li>
+                            <li>Type your first message to start coding with AI</li>
+                            <li>Use <code>/</code> commands for special actions (e.g., <code>/help</code>)</li>
+                            <li>Attach files by dragging them into the chat</li>
+                            <li>Cline can read your workspace files and help with code</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem;">📚 Next Steps</h3>
+                    <div style="display: grid; gap: 1rem; max-width: 600px; margin: 0 auto;">
+                        <a href="https://docs.cline.bot" target="_blank" class="link-btn" style="justify-content: center;">
+                            📖 Read Cline Documentation
+                        </a>
+                        <a href="https://openrouter.ai/docs" target="_blank" class="link-btn" style="justify-content: center;">
+                            📊 OpenRouter API Docs
+                        </a>
+                        <a href="https://code.visualstudio.com/docs" target="_blank" class="link-btn" style="justify-content: center;">
+                            🎯 VS Code Official Docs
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding: 2rem; background: rgba(102, 126, 234, 0.1); border-radius: 16px;">
+                        <h4 style="margin-bottom: 1rem;">💻 Quick VS Code Tips</h4>
+                        <ul style="margin-left: 1.2rem; columns: 2; gap: 1rem; column-count: 2;">
+                            <li><code>Ctrl+P</code> - Quick file open</li>
+                            <li><code>Ctrl+Shift+P</code> - Command Palette</li>
+                            <li><code>Ctrl+/</code> - Toggle comment</li>
+                            <li><code>Ctrl+Shift+N</code> - New window</li>
+                            <li><code>Ctrl+Tab</code> - Switch tabs</li>
+                            <li><code>Ctrl+Shift+E</code> - Explorer</li>
+                            <li><code>Ctrl+Shift+G</code> - Source Control</li>
+                            <li><code>Ctrl+`</code> - Terminal</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn prev" onclick="prevStep()">← Previous</button>
+                    <button class="nav-btn next" onclick="restartGuide()">Start Over ↻</button>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; margin-top: 3rem; padding: 2rem; color: var(--text-secondary); font-size: 0.9rem;">
+            <p>Made with ✨ for developers | Liquid Glass Morphetic Design</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7;">All trademarks belong to their respective owners</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        // Platform selector functionality
+        document.querySelectorAll('.platform-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.dataset.platform;
+
+                // Remove active from all buttons and contents
+                document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked button and corresponding content
+                this.classList.add('active');
+                document.getElementById(platform).classList.add('active');
+            });
+        });
+
+        // Step navigation
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // Remove active from all progress steps
+            document.querySelectorAll('.progress-step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+            });
+
+            // Show current step
+            document.getElementById(`step${step}`).classList.add('active');
+
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach(stepEl => {
+                const stepNum = parseInt(stepEl.dataset.step);
+                if (stepNum === step) {
+                    stepEl.classList.add('active');
+                } else if (stepNum < step) {
+                    stepEl.classList.add('completed');
+                    stepEl.querySelector('.step-circle').innerHTML = '✓';
+                } else {
+                    stepEl.classList.remove('completed');
+                    stepEl.querySelector('.step-circle').innerHTML = stepNum;
+                }
+            });
+
+            // Update progress bar
+            const progress = ((step - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+
+            // Update navigation buttons
+            const prevBtn = document.querySelector('#step' + step + ' .nav-btn.prev');
+            const nextBtn = document.querySelector('#step' + step + ' .nav-btn.next');
+
+            if (prevBtn) {
+                prevBtn.disabled = step === 1;
+            }
+
+            if (nextBtn) {
+                nextBtn.textContent = step === totalSteps ? 'Complete' : 'Next →';
+            }
+
+            currentStep = step;
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                showStep(currentStep + 1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function restartGuide() {
+            showStep(1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Copy to clipboard functionality
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                button.textContent = 'Failed';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Click on progress steps to navigate
+        document.querySelectorAll('.progress-step').forEach(stepEl => {
+            stepEl.addEventListener('click', function() {
+                const stepNum = parseInt(this.dataset.step);
+                // Only allow clicking on completed steps or current step
+                if (stepNum <= currentStep) {
+                    showStep(stepNum);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Initialize
+        showStep(1);
+
+        // Add some interactivity to cards
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'Enter') {
+                if (currentStep < totalSteps) nextStep();
+            } else if (e.key === 'ArrowLeft') {
+                if (currentStep > 1) prevStep();
+            }
+        });
+    </script>
+</body>
+</html>
